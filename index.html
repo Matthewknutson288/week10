@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video Games</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Video Games</h1>
+      <table class="table" id="gamesTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Platform</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be added here -->
+        </tbody>
+      </table>
+      <form id="gameForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" />
+        </div>
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <input type="text" class="form-control" id="genre" />
+        </div>
+        <div class="form-group">
+          <label for="platform">Platform</label>
+          <input type="text" class="form-control" id="platform" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#gameForm").on("submit", function (e) {
+          e.preventDefault();
+          var name = $("#name").val();
+          var genre = $("#genre").val();
+          var platform = $("#platform").val();
+          $("#gamesTable tbody").append(
+            "<tr><td>" +
+              name +
+              "</td><td>" +
+              genre +
+              "</td><td>" +
+              platform +
+              "</td></tr>"
+          );
+          $("#name").val("");
+          $("#genre").val("");
+          $("#platform").val("");
+        });
+      });
+    </script>
+  </body>
+</html>
